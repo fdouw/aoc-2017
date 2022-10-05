@@ -1,4 +1,4 @@
-use std::collections::HashSet;
+use std::collections::HashMap;
 
 pub fn solve(input: String, _verbose: bool) -> (String, String) {
     let mut membanks = input
@@ -7,15 +7,17 @@ pub fn solve(input: String, _verbose: bool) -> (String, String) {
         .collect::<Vec<_>>();
     let n_banks = membanks.len();
 
-    let mut seen = HashSet::new();
+    let mut seen = HashMap::new();
     let mut cycle = 0;
+    let loop_size;
     loop {
         // Hash the membanks and check if we have seen it before
         let mut hash = 0;
         for n in &membanks {
             hash = (hash << 4) + n;
         }
-        if !seen.insert(hash) {
+        if let Some(prev) = seen.insert(hash, cycle) {
+            loop_size = cycle - prev;
             break;
         }
 
@@ -39,5 +41,5 @@ pub fn solve(input: String, _verbose: bool) -> (String, String) {
         cycle += 1;
     }
 
-    (cycle.to_string(), String::from("<not yet implemented>"))
+    (cycle.to_string(), loop_size.to_string())
 }
