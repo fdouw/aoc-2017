@@ -1,3 +1,6 @@
+pub mod itertools;
+pub mod unionfind;
+
 use std::collections::{HashMap, HashSet};
 
 pub fn parse_block_output(output: &HashSet<(u32, u32)>, width: u32) -> String {
