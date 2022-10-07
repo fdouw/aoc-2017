@@ -5,6 +5,7 @@ mod lib_2017;
 #[allow(dead_code)]
 mod lib_aoc;
 mod solutions;
+mod tests;
 
 fn read_input_file(folder: &str, day: u8) -> io::Result<String> {
     let cwd = env::current_dir()?;
