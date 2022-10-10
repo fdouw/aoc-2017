@@ -1,3 +1,4 @@
+use crate::lib_aoc::primes::PrimeSieve;
 use std::{collections::HashSet, str::FromStr};
 
 pub fn solve(input: String, verbose: bool) -> (String, String) {
@@ -42,37 +43,6 @@ pub fn solve(input: String, verbose: bool) -> (String, String) {
     let part2 = (a..=b).step_by(17).filter(|n| !primes.contains(n)).count();
 
     (part1.to_string(), part2.to_string())
-}
-
-struct PrimeSieve {
-    primes: Vec<u64>,
-}
-
-impl PrimeSieve {
-    fn new() -> Self {
-        PrimeSieve { primes: Vec::new() }
-    }
-}
-
-impl Iterator for PrimeSieve {
-    type Item = u64;
-    fn next(&mut self) -> Option<u64> {
-        let mut n = *self.primes.last().unwrap_or(&1) + 1;
-        loop {
-            let mut is_prime = true;
-            for p in self.primes.iter() {
-                if n % p == 0 {
-                    is_prime = false;
-                    break;
-                }
-            }
-            if is_prime {
-                self.primes.push(n);
-                return Some(n);
-            }
-            n += 1;
-        }
-    }
 }
 
 #[derive(Clone, Debug)]

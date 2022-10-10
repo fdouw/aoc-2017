@@ -1,4 +1,5 @@
 pub mod itertools;
+pub mod primes;
 pub mod unionfind;
 
 use std::collections::{HashMap, HashSet};
