@@ -40,7 +40,6 @@ pub fn solve(input: String, verbose: bool) -> (String, String) {
         .collect::<HashSet<u64>>();
 
     let part2 = (a..=b).step_by(17).filter(|n| !primes.contains(n)).count();
-    // 914 => too low
 
     (part1.to_string(), part2.to_string())
 }
