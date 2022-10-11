@@ -1,7 +1,8 @@
 use std::{collections::HashMap, str::FromStr, sync::mpsc};
 
 pub fn solve(input: String, _verbose: bool) -> (String, String) {
-    // let test_input = "snd 1\nsnd 2\nsnd p\nrcv a\nrcv b\nrcv c\nrcv d".to_string();
+    #[allow(unused_variables)]
+    let test_input = "snd 1\nsnd 2\nsnd p\nrcv a\nrcv b\nrcv c\nrcv d".to_string();
     let mut tablet = Tablet::new(&input);
     let part1 = tablet.run_to_recover();
 

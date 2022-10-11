@@ -3,6 +3,7 @@ use std::collections::{HashMap, HashSet};
 use itertools::Itertools;
 
 pub fn solve(input: String, _verbose: bool) -> (String, String) {
+    #[allow(unused_variables)]
     let test_input = "../.# => ##./#../...\n.#./..#/### => #..#/..../..../#..#";
 
     // Starting grid is given in problem statement:

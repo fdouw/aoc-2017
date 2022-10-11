@@ -1,7 +1,8 @@
 use itertools::Itertools;
 
 pub fn solve(input: String, _verbose: bool) -> (String, String) {
-    let _test_input = "0: 3\n1: 2\n4: 4\n6: 4";
+    #[allow(unused_variables)]
+    let test_input = "0: 3\n1: 2\n4: 4\n6: 4";
 
     let mut total_severity = 0;
     for line in input.trim().lines() {
